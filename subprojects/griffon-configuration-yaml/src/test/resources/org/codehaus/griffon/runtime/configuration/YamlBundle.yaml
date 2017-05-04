@@ -1,0 +1,11 @@
+string: string
+integer: 42
+keys:
+  bar: bar
+environments:
+  development:
+    foo: dev
+  test:
+    foo: test
+  production:
+    foo: prod

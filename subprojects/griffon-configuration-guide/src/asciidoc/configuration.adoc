@@ -1,0 +1,87 @@
+
+[[_configuration]]
+= Build Configuration
+
+== Gradle
+
+You have two options for configuring this plugin: automatic and manual.
+
+=== Automatic
+
+As long as the project has the `org.codehaus.griffon.griffon` plugin applied to it you
+may include the following snippet in `build.gradle`
+
+[source,groovy,options="nowrap"]
+[subs="attributes"]
+----
+dependencies {
+    griffon '{project-group}:griffon-configuration-plugin:{project-version}'
+}
+----
+
+The `griffon` plugin will take care of the rest given its configuration.
+
+=== Manual
+
+You will need to configure any of the following blocks depending on your setup
+
+.JSON Support
+[source,groovy,options="nowrap"]
+[subs="attributes"]
+----
+dependencies {
+    compile '{project-group}:griffon-configuration-json:{project-version}'
+}
+----
+
+.YAML Support
+[source,groovy,options="nowrap"]
+[subs="attributes"]
+----
+dependencies {
+    compile '{project-group}:griffon-configuration-yaml:{project-version}'
+}
+----
+
+== Maven
+
+First configure the `griffon-configuration-plugin` BOM in your POM file, by placing the following
+snippet before the `<build>` element
+
+[source,xml,options="nowrap"]
+[subs="attributes,verbatim"]
+----
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>{project-group}</groupId>
+            <artifactId>griffon-configuration-plugin</artifactId>
+            <version>{project-version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+----
+
+Next configure dependencies as required by your particular setup
+
+.JSON Support
+[source,xml,options="nowrap"]
+[subs="attributes,verbatim"]
+----
+<dependency>
+    <groupId>{project-group}</groupId>
+    <artifactId>griffon-configuration-json</artifactId>
+</dependency>
+----
+
+.YAML Support
+[source,xml,options="nowrap"]
+[subs="attributes,verbatim"]
+----
+<dependency>
+    <groupId>{project-group}</groupId>
+    <artifactId>griffon-configuration-yaml</artifactId>
+</dependency>
+----
