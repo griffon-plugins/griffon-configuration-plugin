@@ -7,12 +7,12 @@ buildscript {
 
     dependencies {
         classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.3'
-        classpath 'com.bmuschko:gradle-java2html-plugin:2.0'
+        // classpath 'com.bmuschko:gradle-java2html-plugin:2.0'
     }
 }
 
 apply plugin: 'org.asciidoctor.convert'
-apply plugin: 'com.bmuschko.java2html'
+// apply plugin: 'com.bmuschko.java2html'
 
 ext.childProjects = [
     ':griffon-configuration-yaml',
@@ -21,9 +21,11 @@ ext.childProjects = [
 
 ext.childProjects.each { evaluationDependsOn it }
 
+/*
 dependencies {
     java2html 'de.java2html:java2html:5.0'
 }
+*/
 
 task copyDocs(type: Copy) {
     destinationDir = "${buildDir}/sources" as File
@@ -66,9 +68,9 @@ task apiDocs(type: Javadoc, dependsOn: copyDocs) {
     options.docTitle    = "${pluginBaseName} ${project.version}"
     options.footer      = project.javadocFooter
     options.links       = ['http://www.slf4j.org/apidocs/',
-                           'http://junit.org/javadoc/latest/',
-                           'http://jsr-305.googlecode.com/svn/trunk/javadoc/',
-                           'http://atinject.googlecode.com/svn/trunk/javadoc/',
+                           'http://junit.org/junit4/javadoc/latest/',
+                           'http://aalmiray.github.io/jsr-305/apidocs/',
+                           'http://javax-inject.github.io/javax-inject/api/',
                            'http://docs.oracle.com/javase/8/docs/api/',
                            "http://griffon-framework.org/guide/${griffonVersion}/api/".toString()]
 
@@ -85,11 +87,13 @@ task apiDocs(type: Javadoc, dependsOn: copyDocs) {
     }
 }
 
+/*
 task generateJava2html {
     dependsOn apiDocs
     dependsOn "java2htmlGenerateOverview"
     dependsOn java2htmlConvertCode
 }
+*/
 
 task javadocJar(type: Jar, dependsOn: apiDocs) {
     archiveName    = "${pluginBaseName}-plugin-${version}-javadoc.jar"
@@ -97,14 +101,17 @@ task javadocJar(type: Jar, dependsOn: apiDocs) {
     from apiDocs.destinationDir
 }
 
+/*
 task sourceHtmlJar(type: Jar, dependsOn: java2html) {
     archiveName    = "${pluginBaseName}-plugin-${version}-sources-html.jar"
     destinationDir = "${buildDir}/assemble/jars" as File
     from java2htmlConvertCode.destDir
 }
+*/
 
-task docsJar(dependsOn: [javadocJar, sourceHtmlJar]) { }
+task docsJar(dependsOn: [javadocJar/*, sourceHtmlJar*/]) { }
 
+/*
 java2html {
     conversion {
         srcDirs = files(copyDocs.destinationDir)
@@ -125,6 +132,7 @@ java2html {
         stylesheet     = file('src/javadoc/resources/css/stylesheet.css')
     }
 }
+*/
 
 asciidoctor {
     sourceDir = file('src/asciidoc')
@@ -157,10 +165,11 @@ asciidoctor {
     }
 }
 
-task guide(type: Copy, dependsOn: [apiDocs, generateJava2html, asciidoctor]) {
+// task guide(type: Copy, dependsOn: [apiDocs, generateJava2html, asciidoctor]) {
+task guide(type: Copy, dependsOn: [apiDocs, asciidoctor]) {
     destinationDir = "${buildDir}/guide" as File
     from(apiDocs.destinationDir)       { into 'api' }
-    from(java2htmlConvertCode.destDir) { into 'api-src'}
+    // from(java2htmlConvertCode.destDir) { into 'api-src'}
     from("${asciidoctor.outputDir}/html5")
 }
 
