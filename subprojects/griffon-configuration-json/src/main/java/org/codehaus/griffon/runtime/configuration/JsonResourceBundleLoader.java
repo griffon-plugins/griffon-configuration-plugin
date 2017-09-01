@@ -79,7 +79,6 @@ public class JsonResourceBundleLoader extends AbstractResourceBundleLoader {
                     bundles.add(bundle);
                 } catch (Exception e) {
                     // ignore
-                    e.printStackTrace();
                 }
             }
         }

@@ -2,7 +2,7 @@
 [[_introduction]]
 = Introduction
 
-Provides additional configuration formats such as YAML and JSON. With this plugin instaleld you'll be able to write
+Provides additional configuration formats such as YAML and JSON. With this plugin installed you'll be able to write
 any configuration file using YAML or JSON formats. For example, a typical `Config.groovy` file can be rewritten with
 JSON as
 
