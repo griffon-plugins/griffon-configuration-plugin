@@ -15,17 +15,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+dependencies {
+    api "com.github.jezza:toml:$tomlVersion"
+}
 
-buildscript {
-    repositories {
-        gradlePluginPortal()
-        mavenLocal()
-    }
-    dependencies {
-        classpath "org.codehaus.griffon:griffon-plugin-gradle-plugin:$griffonVersion"
-
+jar {
+    manifest {
+        attributes('Automatic-Module-Name': project.group + '.configuration.toml')
     }
 }
-apply plugin: 'org.codehaus.griffon.plugin'
-
-rootProject.name = 'griffon-configuration-plugin'

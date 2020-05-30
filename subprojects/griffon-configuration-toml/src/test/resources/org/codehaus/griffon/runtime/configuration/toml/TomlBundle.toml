@@ -16,4 +16,17 @@
 # limitations under the License.
 #
 
-projectDescription = Griffon Configuration JSON Plugin
+string = "string"
+integer = 42
+
+[keys]
+bar = "bar"
+
+[environments.development]
+foo = "dev"
+
+[environments.test]
+foo = "test"
+
+[environments.production]
+foo = "prod"

@@ -16,16 +16,10 @@
  * limitations under the License.
  */
 
-buildscript {
-    repositories {
-        gradlePluginPortal()
-        mavenLocal()
-    }
-    dependencies {
-        classpath "org.codehaus.griffon:griffon-plugin-gradle-plugin:$griffonVersion"
+ext.projectDependencies = [
+    ':griffon-configuration-yaml',
+    ':griffon-configuration-toml',
+    ':griffon-configuration-json'
+]
 
-    }
-}
-apply plugin: 'org.codehaus.griffon.plugin'
-
-rootProject.name = 'griffon-configuration-plugin'
+ext.projectDependencies.each { evaluationDependsOn it }

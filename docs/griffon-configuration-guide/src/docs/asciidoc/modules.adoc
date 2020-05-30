@@ -1,0 +1,44 @@
+
+[[_modules]]
+= Modules
+:subproject-base: {rootdir}/subprojects/griffon-configuration-
+:java-source: /src/main/java/
+:package-base: org/codehaus/griffon/runtime/configuration
+:numbered:
+
+The following sections display all bindings per module. Use this information to
+successfully override a binding on your own modules or to troubleshoot a module
+binding if the wrong type has been applied by the Griffon runtime.
+
+== Configuration JSON
+
+Module name: `configuration-json`
+
+Depends on: `core`
+
+[source,java,options="nowrap"]
+----
+include::{subproject-base}json{java-source}{package-base}/json/ConfigurationJsonModule.java[tags=bindings,indent=0]
+----
+
+== Configuration TOML
+
+Module name: `configuration-toml`
+
+Depends on: `core`
+
+[source,java,options="nowrap"]
+----
+include::{subproject-base}toml{java-source}{package-base}/toml/ConfigurationTomlModule.java[tags=bindings,indent=0]
+----
+
+== Configuration YAML
+
+Module name: `configuration-yaml`
+
+Depends on: `core`
+
+[source,java,options="nowrap"]
+----
+include::{subproject-base}yaml{java-source}{package-base}/yaml/ConfigurationYamlModule.java[tags=bindings,indent=0]
+----
