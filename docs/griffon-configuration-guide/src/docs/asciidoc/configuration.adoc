@@ -30,7 +30,7 @@ You will need to configure any of the following blocks depending on your setup
 [subs="attributes"]
 ----
 dependencies {
-    compile '{project-group}:griffon-configuration-json:{project-version}'
+    api '{project-group}:griffon-configuration-json:{project-version}'
 }
 ----
 
@@ -39,7 +39,7 @@ dependencies {
 [subs="attributes"]
 ----
 dependencies {
-    compile '{project-group}:griffon-configuration-toml:{project-version}'
+    api '{project-group}:griffon-configuration-toml:{project-version}'
 }
 ----
 
@@ -48,7 +48,7 @@ dependencies {
 [subs="attributes"]
 ----
 dependencies {
-    compile '{project-group}:griffon-configuration-yaml:{project-version}'
+    api '{project-group}:griffon-configuration-yaml:{project-version}'
 }
 ----
 
