@@ -18,9 +18,3 @@
 dependencies {
     api "org.yaml:snakeyaml:$snakeYamlVersion"
 }
-
-jar {
-    manifest {
-        attributes('Automatic-Module-Name': project.group + '.configuration.yaml')
-    }
-}

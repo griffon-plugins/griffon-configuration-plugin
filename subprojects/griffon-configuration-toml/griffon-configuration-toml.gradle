@@ -18,9 +18,3 @@
 dependencies {
     api "com.github.jezza:toml:$tomlVersion"
 }
-
-jar {
-    manifest {
-        attributes('Automatic-Module-Name': project.group + '.configuration.toml')
-    }
-}

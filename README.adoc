@@ -17,5 +17,5 @@ image:https://img.shields.io/badge/donations-Patreon-orange.svg[link="https://ww
 
 Provides additional configuration formats such as JSON, YAML, and TOML.
 
-Refer to the link:http://griffon-plugins.github.io/griffon-configuration-plugin/[plugin guide, window="_blank"] for
+Refer to the link:http://griffon-plugins.github.io/{project-name}/[plugin guide, window="_blank"] for
 further information on configuration and usage.
